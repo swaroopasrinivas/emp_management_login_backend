@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <h1 class="text-center" style="color: white">Order Management</h1>
+  <ul class="navbar-nav" float:left>
+    <li class="nav-item">
+      <a routerLink="/employees" routerLinkActive="active" class="nav-link"
+        >Order List</a
+      >
+    </li>
+    <li class="nav-item">
+      <a
+        routerLink="/create-employee"
+        routerLinkActive="active"
+        class="nav-link"
+        >Create Order</a
+      >
+    </li>
+    <li class="nav-item">
+      <a routerLink="/employees" routerLinkActive="active" class="nav-link"
+        >check List</a
+      >
+    </li>
+  </ul>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+
+<div class="col-md-6 offset-md-3">
+  <h3>Create Order</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label> Product Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        [(ngModel)]="employee.firstName"
+        name="firstName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label> Qty </label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        [(ngModel)]="employee.lastName"
+        name="lastName"
+      />
+    </div>
+
+    <div class="form-group">
+      <label> Email Id</label>
+      <input
+        type="text"
+        class="form-control"
+        id="emailId"
+        [(ngModel)]="employee.emailId"
+        name="emailId"
+      />
+    </div>
+
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+</div>

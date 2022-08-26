@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+  <h1 class="text-center" style="color: white">Order Management</h1>
+  <ul class="navbar-nav" float:left>
+    <li class="nav-item">
+      <a routerLink="employees" routerLinkActive="active" class="nav-link"
+        >Order List</a
+      >
+    </li>
+    <li class="nav-item">
+      <a routerLink="create-employee" routerLinkActive="active" class="nav-link"
+        >Create Order</a
+      >
+    </li>
+  </ul>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<h2>Order List</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Product Name</th>
+      <th>Quantity</th>
+      <th>Email Id</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{ employee.firstName }}</td>
+      <td>{{ employee.lastName }}</td>
+      <td>{{ employee.emailId }}</td>
+      <td>
+        <button (click)="updateEmployee(employee.id)" class="btn btn-info">
+          Update
+        </button>
+        <button
+          (click)="deleteEmployee(employee.id)"
+          class="btn btn-danger"
+          style="margin-left: 10px"
+        >
+          Delete
+        </button>
+        <button
+          (click)="employeeDetails(employee.id)"
+          class="btn btn-info"
+          style="margin-left: 10px"
+        >
+          View
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
